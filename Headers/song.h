@@ -1,0 +1,20 @@
+//
+// Created by raphaell on 02/12/2025.
+//
+
+#ifndef PROJETOC_SONG_H
+#define PROJETOC_SONG_H
+
+typedef struct song {
+    int id;
+    char title[50];
+    char artist[50];
+    int duration;
+} Song;
+
+int read_songs(char *file_name, Song* songs, int max_songs);
+
+void print_songs(Song* songs, int songs_count);
+
+
+#endif //PROJETOC_SONG_H
