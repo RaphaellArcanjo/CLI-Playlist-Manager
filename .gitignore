@@ -1,0 +1,23 @@
+# Ignorar arquivos de compilação do CLion/CMake
+cmake-build-debug/
+cmake-build-release/
+CMakeFiles/
+Makefile
+CMakeCache.txt
+*.cmake
+CMakeLists.txt
+songs.txt
+
+# Ignorar configurações da IDE (são pessoais suas)
+.idea/
+
+# Ignorar executáveis e binários compilados
+*.exe
+*.o
+*.dll
+*.so
+*.dylib
+
+# Ignorar arquivos do sistema
+.DS_Store
+Thumbs.db
