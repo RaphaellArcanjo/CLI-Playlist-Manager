@@ -12,6 +12,11 @@ typedef struct song {
     int duration;
 } Song;
 
+typedef struct time {
+    int minutes;
+    int seconds;
+} Time;
+
 int read_songs(char *file_name, Song* songs, int max_songs);
 
 void print_songs(Song* songs, int songs_count);
