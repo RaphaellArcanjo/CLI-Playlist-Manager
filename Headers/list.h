@@ -22,6 +22,8 @@ typedef struct list {
 
 void init_playlist(Playlist *playlist);
 
+void append_song(Playlist *playlist, Song song);
+
 
 
 #endif //PROJETOC_LIST_H
