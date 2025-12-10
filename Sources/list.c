@@ -30,3 +30,21 @@ void append_song(Playlist *playlist, Song song) {
    }
    playlist->size++;
 }
+
+void play_next(Playlist *playlist) {
+   if (playlist->size > 0) {
+      if (playlist->current->next != NULL) {
+         playlist->current = playlist->current->next;
+      } else {
+         playlist->current = playlist->first;
+      }
+   }
+}
+
+void play_prev(Playlist *playlist) {
+   if (playlist->size > 0) {
+      if (playlist->current != playlist->first) {
+         playlist->current = playlist->current->prev;
+      }
+   }
+}

@@ -24,6 +24,10 @@ void init_playlist(Playlist *playlist);
 
 void append_song(Playlist *playlist, Song song);
 
+void play_next(Playlist *playlist);
+
+void play_prev(Playlist *playlist);
+
 
 
 #endif //PROJETOC_LIST_H
