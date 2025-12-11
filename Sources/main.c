@@ -20,14 +20,27 @@ int main(void) {
     }
 
     do {
+        if (my_playlist.current != NULL) {
+            printf("\n>>> Tocando agora: %s - %s <<<\n", my_playlist.current->data.title, my_playlist.current->data.artist);
+        } else {
+            printf("\n>>> Player Parado <<<\n");
+        }
+
+
         MENU();
         scanf("%d", &option);
 
         switch (option) {
             case 1:
-                print_songs(library, total_songs);
+                play_next(&my_playlist);
                 break;
             case 2:
+                play_prev(&my_playlist);
+                break;
+            case 3:
+                print_songs(library, total_songs);
+                break;
+            case 4:
                 printf("Saindo do sistema...\n");
                 break;
             default:
@@ -35,7 +48,7 @@ int main(void) {
                 break;
         }
 
-    } while (option != 2);
+    } while (option != 4);
 
 
     return 0;

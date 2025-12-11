@@ -6,9 +6,10 @@
 #include "interface.h"
 
 void MENU() {
-    printf("===========================================================\n");
-    printf("1. Listar\n");
-    printf("2. Sair\n");
+    printf("[1] Proxima\n");
+    printf("[2] Anterior\n");
+    printf("[3] Listar Todas\n");
+    printf("[4] Sair\n");
     printf("===========================================================\n");
     printf("Escolha uma opcao: ");
 }
