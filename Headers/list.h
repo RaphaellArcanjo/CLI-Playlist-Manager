@@ -28,6 +28,8 @@ void play_next(Playlist *playlist);
 
 void play_prev(Playlist *playlist);
 
+void free_playlist(Playlist *playlist);
+
 
 
 #endif //PROJETOC_LIST_H

@@ -51,5 +51,6 @@ int main(void) {
     } while (option != 4);
 
 
+    free_playlist(&my_playlist);
     return 0;
 }

@@ -48,3 +48,7 @@ void play_prev(Playlist *playlist) {
       }
    }
 }
+
+void free_playlist(Playlist *playlist) {
+
+}
