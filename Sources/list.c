@@ -57,4 +57,10 @@ void free_playlist(Playlist *playlist) {
       free(aux);
       aux = temp;
    }
+
+   playlist->first = NULL;
+   playlist->last = NULL;
+   playlist->current = NULL;
+
+   playlist->size = 0;
 }
