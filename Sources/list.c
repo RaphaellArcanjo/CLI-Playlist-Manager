@@ -50,5 +50,11 @@ void play_prev(Playlist *playlist) {
 }
 
 void free_playlist(Playlist *playlist) {
+   Node *aux = playlist->first;
 
+   while (aux != NULL) {
+      Node *temp = aux->next;
+      free(aux);
+      aux = temp;
+   }
 }
