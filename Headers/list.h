@@ -30,6 +30,8 @@ void play_prev(Playlist *playlist);
 
 void free_playlist(Playlist *playlist);
 
+void remove_current_song(Playlist *playlist);
+
 
 
 #endif //PROJETOC_LIST_H

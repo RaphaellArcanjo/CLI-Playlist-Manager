@@ -64,3 +64,15 @@ void free_playlist(Playlist *playlist) {
 
    playlist->size = 0;
 }
+
+void remove_current_song(Playlist *playlist) {
+   if (playlist->size == 0) {
+      return ;
+   } else if (playlist->size == 1){
+      free(playlist->current);
+      playlist->first = NULL;
+      playlist->last = NULL;
+      playlist->current = NULL;
+      playlist->size = 0;
+   }
+}
