@@ -74,5 +74,26 @@ void remove_current_song(Playlist *playlist) {
       playlist->last = NULL;
       playlist->current = NULL;
       playlist->size = 0;
+   } else {
+      Node *to_remove = playlist->current;;
+      if (playlist->current == playlist->first) {
+         playlist->first = playlist->first->next;
+         playlist->first->prev = NULL;
+         free(to_remove);
+         playlist->current = playlist->first;
+         playlist->size--;
+      } else if (playlist->current == playlist->last) {
+         playlist->last = playlist->last->prev;
+         playlist->last->next = NULL;
+         free(to_remove);
+         playlist->current = playlist->last;
+         playlist->size--;
+      } else {
+         to_remove->prev->next = to_remove->next;
+         to_remove->next->prev = to_remove->prev;
+         playlist->current = to_remove->next;
+         free(to_remove);
+         playlist->size--;
+      }
    }
 }
