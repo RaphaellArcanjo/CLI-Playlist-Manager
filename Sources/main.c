@@ -41,6 +41,9 @@ int main(void) {
                 print_songs(library, total_songs);
                 break;
             case 4:
+                remove_current_song(&my_playlist);
+                break;
+            case 5:
                 printf("Saindo do sistema...\n");
                 break;
             default:
@@ -48,7 +51,7 @@ int main(void) {
                 break;
         }
 
-    } while (option != 4);
+    } while (option != 5);
 
 
     free_playlist(&my_playlist);
