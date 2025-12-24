@@ -115,3 +115,20 @@ void save_playlist(Playlist *playlist) {
    }
    fclose(arq_playlist);
 }
+
+void load_playlist(Playlist *playlist) {
+   FILE *arq_playlist = fopen("songs.txt","r");
+
+   if (arq_playlist == NULL) {
+      printf("ERRO: O arquivo songs.txt nao foi encontrado!\n");
+      return;
+   }
+
+   char line[200]; //buffer para ler a linha inteira
+
+   while (fgets(line, sizeof(line), arq_playlist) != NULL) {
+      printf("Lido do arquivo: %s", line);
+   }
+
+   fclose(arq_playlist);
+}
