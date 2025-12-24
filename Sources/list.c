@@ -5,6 +5,7 @@
 #include "list.h"
 
 #include <stdlib.h>
+#include <stdio.h>
 
 void init_playlist(Playlist *playlist) {
    playlist->first = NULL;
@@ -75,7 +76,7 @@ void remove_current_song(Playlist *playlist) {
       playlist->current = NULL;
       playlist->size = 0;
    } else {
-      Node *to_remove = playlist->current;;
+      Node *to_remove = playlist->current;
       if (playlist->current == playlist->first) {
          playlist->first = playlist->first->next;
          playlist->first->prev = NULL;
@@ -96,4 +97,21 @@ void remove_current_song(Playlist *playlist) {
          playlist->size--;
       }
    }
+}
+
+void save_playlist(Playlist *playlist) {
+   FILE *arq_playlist = NULL;
+   arq_playlist = fopen("songs.txt","w");
+
+   if (arq_playlist == NULL) {
+      printf("Erro ao abrir arquivo para salvar!\n");
+      return;
+   }
+
+   Node *aux = playlist->first;
+   while (aux != NULL) {
+      fprintf(arq_playlist, "%s;%s\n", aux->data.artist , aux->data.title);
+      aux = aux->next;
+   }
+   fclose(arq_playlist);
 }
