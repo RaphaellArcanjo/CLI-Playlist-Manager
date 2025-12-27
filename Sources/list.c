@@ -3,6 +3,7 @@
 //
 
 #include "list.h"
+#include "song.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -162,4 +163,27 @@ void load_playlist(Playlist *playlist) {
    }
 
    fclose(arq_playlist);
+}
+
+void print_playlist(Playlist *playlist) {
+   Node *aux = playlist->first;
+
+   if (aux == NULL) {
+      printf("A playlist esta vazia!\n");
+      return;
+   }
+
+   printf("\n--- Playlist Completa ---\n");
+   while (aux != NULL) {
+      Time time = seconds_to_minutes(aux->data.duration);
+
+      printf("%-20.20s (%d:%02d) - %s\n",
+             aux->data.title,
+             time.minutes,
+             time.seconds,
+             aux->data.artist);
+
+      aux = aux->next;
+   }
+   printf("-------------------------\n");
 }

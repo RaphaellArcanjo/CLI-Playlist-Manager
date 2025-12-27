@@ -36,6 +36,7 @@ void save_playlist(Playlist *playlist);
 
 void load_playlist(Playlist *playlist);
 
+void print_playlist(Playlist *playlist);
 
 
 

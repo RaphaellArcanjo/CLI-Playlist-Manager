@@ -8,16 +8,9 @@ int main(void) {
 
     int option = -1;
     Playlist my_playlist;
-    Song library[100];
-
-    int total_songs = 0;
-    total_songs = read_songs("songs.txt", library, 100);
 
     init_playlist(&my_playlist);
-
-    for (int i = 0; i < total_songs; i++) {
-        append_song(&my_playlist, library[i]);
-    }
+    load_playlist(&my_playlist);
 
     do {
         if (my_playlist.current != NULL) {
@@ -38,12 +31,13 @@ int main(void) {
                 play_prev(&my_playlist);
                 break;
             case 3:
-                print_songs(library, total_songs);
+                print_playlist(&my_playlist);
                 break;
             case 4:
                 remove_current_song(&my_playlist);
                 break;
             case 5:
+                save_playlist(&my_playlist);
                 printf("Saindo do sistema...\n");
                 break;
             default:
