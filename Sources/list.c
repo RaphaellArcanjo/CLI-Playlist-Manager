@@ -112,7 +112,7 @@ void save_playlist(Playlist *playlist) {
 
    Node *aux = playlist->first;
    while (aux != NULL) {
-      fprintf(arq_playlist, "%s;%s\n", aux->data.artist , aux->data.title);
+      fprintf(arq_playlist, "%d;%s;%s;%d\n", aux->data.id, aux->data.title, aux->data.artist, aux->data.duration);
       aux = aux->next;
    }
    fclose(arq_playlist);
