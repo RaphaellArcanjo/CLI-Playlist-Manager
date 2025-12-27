@@ -6,6 +6,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 void init_playlist(Playlist *playlist) {
    playlist->first = NULL;
@@ -125,9 +126,39 @@ void load_playlist(Playlist *playlist) {
    }
 
    char line[200]; //buffer para ler a linha inteira
+   Song aux;
 
    while (fgets(line, sizeof(line), arq_playlist) != NULL) {
-      printf("Lido do arquivo: %s", line);
+      line[strcspn(line, "\n")] = 0;
+
+      char *token = strtok(line, ";");
+      if (token == NULL) {
+         continue;
+      }
+      aux.id = (int)strtol(token, NULL, 10);
+
+      token = strtok(NULL, ";");
+      if (token != NULL) {
+         strcpy(aux.title, token);
+      } else {
+         strcpy(aux.title, "Desconhecido");
+      }
+
+      token = strtok(NULL, ";");
+      if (token != NULL) {
+         strcpy(aux.artist, token);
+      } else {
+         strcpy(aux.artist, "Desconhecido");
+      }
+
+      token = strtok(NULL, ";");
+      if (token != NULL) {
+         aux.duration = (int)strtol(token, NULL, 10);
+      } else {
+         aux.duration = 0;
+      }
+
+      append_song(playlist, aux);
    }
 
    fclose(arq_playlist);
