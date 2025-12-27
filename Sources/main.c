@@ -37,6 +37,30 @@ int main(void) {
                 remove_current_song(&my_playlist);
                 break;
             case 5:
+                Song new_song;
+                printf("\n--- Adicionar Nova Musica ---\n");
+
+                if (my_playlist.last != NULL) {
+                    new_song.id = my_playlist.last->data.id + 1;
+                } else {
+                    new_song.id = 1;
+                }
+
+                printf("Titulo: ");
+                scanf(" %[^\n]", new_song.title);
+
+                printf("Artista: ");
+                scanf(" %[^\n]", new_song.artist);
+
+                printf("Duracao (segundos): ");
+                scanf("%d", &new_song.duration);
+
+                append_song(&my_playlist, new_song);
+
+                save_playlist(&my_playlist);
+
+                break;
+            case 6:
                 save_playlist(&my_playlist);
                 printf("Saindo do sistema...\n");
                 break;
@@ -45,8 +69,7 @@ int main(void) {
                 break;
         }
 
-    } while (option != 5);
-
+    } while (option != 6);
 
     free_playlist(&my_playlist);
     return 0;
