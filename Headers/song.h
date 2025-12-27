@@ -21,7 +21,6 @@ int read_songs(char *file_name, Song* songs, int max_songs);
 
 Time seconds_to_minutes(int total_seconds);
 
-void print_songs(Song* songs, int songs_count);
 
 
 #endif //PROJETOC_SONG_H

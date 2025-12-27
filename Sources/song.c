@@ -50,11 +50,3 @@ Time seconds_to_minutes(int total_seconds) {
      time.seconds = total_seconds % 60;
      return  time;
 }
-
-
-void print_songs(Song* songs, int songs_count) {
-     for (int i = 0; i < songs_count; i++) {
-          Time time = seconds_to_minutes(songs[i].duration);
-          printf("%-20.20s (%d:%02d) - %s\n", songs[i].title, time.minutes, time.seconds, songs[i].artist);
-     }
-}
